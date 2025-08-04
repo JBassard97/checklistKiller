@@ -1,0 +1,32 @@
+name: Run Playwright Bot
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # every day at 10PM EST
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run the bot
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          STORE_NUMBER: ${{ secrets.STORE_NUMBER }}
+        run: node bot.js

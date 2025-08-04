@@ -8,7 +8,7 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
 const doughLogCount = 2;
 
 (async () => {
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto("https://app.expandshare.com/login/");
   await page.fill('input[name="email"]', email);
@@ -684,6 +684,6 @@ const doughLogCount = 2;
     }
   }
 
-  // await browser.close();
+  await browser.close();
   console.log("Done");
 })();
