@@ -18,7 +18,11 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
 
 (async () => {
   if (!email || !password || !storeNumber) {
-    throw new Error("Missing EMAIL, PASSWORD, or STORE_NUMBER env vars");
+    console.error(
+      "❌ Missing EMAIL, PASSWORD, or STORE_NUMBER environment variables"
+    );
+    console.error("process.env keys:", Object.keys(process.env)); // debug
+    process.exit(1);
   }
 
   const browser = await chromium.launch({
