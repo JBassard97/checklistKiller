@@ -17,6 +17,10 @@ const password = process.env.PASSWORD;
 const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
 
 (async () => {
+  if (!email || !password || !storeNumber) {
+    throw new Error("Missing EMAIL, PASSWORD, or STORE_NUMBER env vars");
+  }
+
   const browser = await chromium.launch({
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
