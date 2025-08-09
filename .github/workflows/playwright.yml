@@ -29,4 +29,5 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           STORE_NUMBER: ${{ secrets.STORE_NUMBER }}
+          DEBUG: pw:api
         run: node bot.js
