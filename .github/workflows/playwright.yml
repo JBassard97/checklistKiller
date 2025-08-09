@@ -2,7 +2,7 @@ name: Run Playwright Bot
 
 on:
   schedule:
-    - cron: "0 3 * * *"  # every day at 10PM EST
+    - cron: "0 1 * * *"  # every day at 8PM EST, 9PM during DST
   workflow_dispatch:
 
 jobs:
