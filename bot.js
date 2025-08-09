@@ -25,7 +25,7 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   await page.goto("https://app.expandshare.com/login/");
   await page.fill('input[name="email"]', email);
   await page.fill('input[name="passwd"]', password);
-  await page.click(".btn.btn-primary");
+  await page.getByRole("button", { name: "Log In" }).click();
   await page.getByRole("link", { name: "Roadmap" }).nth(1).click();
   await page.getByRole("heading", { name: "Checklist" }).click();
   await page.click(".header__title.header__title__interactable");
