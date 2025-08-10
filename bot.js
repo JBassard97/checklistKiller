@@ -26,7 +26,7 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   }
 
   const browser = await chromium.launch({
-    headless: false,
+    headless: true,
     slowMo: 100,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
