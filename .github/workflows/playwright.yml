@@ -2,7 +2,7 @@ name: Kill Checklists
 
 on:
   schedule:
-    - cron: "0 1 * * *"  # every day at 8PM EST, 9PM during DST
+    - cron: "0 0 * * *"  # every day at 8PM/9PM
   workflow_dispatch:
 
 jobs:
