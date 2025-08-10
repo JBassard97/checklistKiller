@@ -1,4 +1,4 @@
-async function doOpeningSani(page) {
+async function doOpeningSani(page, submitChecklist) {
   await page.locator('[id="1"] span').first().click();
   await page
     .locator('[id="181122"]')
@@ -32,6 +32,8 @@ async function doOpeningSani(page) {
     .locator('[id="53459"]')
     .getByRole("button", { name: "Yes" })
     .click();
+
+  await submitChecklist();
 }
 
 module.exports = doOpeningSani;
