@@ -1,4 +1,4 @@
-name: Run Playwright Bot
+name: Kill Checklists
 
 on:
   schedule:
@@ -25,7 +25,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run the bot
+      - name: Run Bot
         env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
