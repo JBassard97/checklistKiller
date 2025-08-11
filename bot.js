@@ -11,6 +11,7 @@ const doPreRushOps = require("./checklists/Pre_Rush_Ops.js");
 const doDinnerSani = require("./checklists/Dinner_Sani.js");
 const doClosingTemps = require("./checklists/Closing_Temps.js");
 const doClosingOps = require("./checklists/Closing_Ops.js");
+const doDailyCleaning = require("./checklists/Daily_Cleaning.js");
 
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
@@ -26,8 +27,8 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   }
 
   const browser = await chromium.launch({
-    headless: true,
-    slowMo: 100,
+    headless: false,
+    slowMo: 50,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -107,6 +108,8 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
       console.log(`Skipping logic for ${name} (not yet implemented)`);
     }
   }
+
+  await doDailyCleaning(page, submitChecklist);
 
   await browser.close();
   console.log("Done");
