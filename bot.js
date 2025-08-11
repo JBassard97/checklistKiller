@@ -12,7 +12,7 @@ const doDinnerSani = require("./checklists/Dinner_Sani.js");
 const doClosingTemps = require("./checklists/Closing_Temps.js");
 const doClosingOps = require("./checklists/Closing_Ops.js");
 const doDailyCleaning = require("./checklists/Daily_Cleaning.js");
-
+  
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
 const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
@@ -27,7 +27,7 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   }
 
   const browser = await chromium.launch({
-    headless: false,
+    headless: true,
     slowMo: 50,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
@@ -57,6 +57,7 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   };
 
   async function submitChecklist() {
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     await sleep(1000);
     await page.getByRole("button", { name: "Submit" }).click();
     await sleep(1000);
@@ -64,8 +65,6 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
     console.log("Complete!");
     await sleep(1000);
   }
-
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   // ? CHECKLIST PORTION
 
