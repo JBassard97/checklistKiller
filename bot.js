@@ -12,7 +12,7 @@ const doDinnerSani = require("./checklists/Dinner_Sani.js");
 const doClosingTemps = require("./checklists/Closing_Temps.js");
 const doClosingOps = require("./checklists/Closing_Ops.js");
 const doDailyCleaning = require("./checklists/Daily_Cleaning.js");
-  
+
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
 const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
@@ -108,7 +108,7 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
     }
   }
 
-  await doDailyCleaning(page, submitChecklist);
+  await doDailyCleaning(page, checkCompletion, submitChecklist);
 
   await browser.close();
   console.log("Done");
