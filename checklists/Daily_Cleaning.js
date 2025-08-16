@@ -62,8 +62,45 @@ async function doDailyCleaning(page, checkCompletion, submitChecklist) {
       .getByRole("button", { name: "Yes" })
       .click();
   } else if (today === "Wednesday") {
+    // TODO: Add Wednesday tasks
   } else if (today === "Thursday") {
+    await page
+      .locator('[id="101713"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101714"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101715"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101716"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101717"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101718"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
   } else if (today === "Friday") {
+    await page
+      .locator('[id="101719"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101720"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101721"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
   } else if (today === "Saturday") {
   } else if (today === "Sunday") {
     await page
