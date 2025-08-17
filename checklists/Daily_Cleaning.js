@@ -102,6 +102,22 @@ async function doDailyCleaning(page, checkCompletion, submitChecklist) {
       .getByRole("button", { name: "Yes" })
       .click();
   } else if (today === "Saturday") {
+    await page
+      .locator('[id="101722"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101723"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101724"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
+    await page
+      .locator('[id="101725"]')
+      .getByRole("button", { name: "Yes" })
+      .click();
   } else if (today === "Sunday") {
     await page
       .locator('[id="101726"]')

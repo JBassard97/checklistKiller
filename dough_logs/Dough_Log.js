@@ -26,7 +26,7 @@ async function doDoughLog(page, sleep, submitChecklist) {
         .getByRole("button")
         .click();
 
-      await page.getByRole("button", { name: "Yes" }).click();
+      await page.getByRole("heading", { name: "Start New" }).click();
     }
     await page
       .locator('[id="275553"]')

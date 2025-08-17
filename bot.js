@@ -28,8 +28,8 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   }
 
   const browser = await chromium.launch({
-    headless: false,
-    slowMo: 150,
+    headless: true,
+    slowMo: 50,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
