@@ -16,16 +16,16 @@ const doDoughLog = require("./dough_logs/Dough_Log.js");
 
 const email = process.env.EMAIL;
 const password = process.env.PASSWORD;
-const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
+// const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
 
 (async () => {
-  if (!email || !password || !storeNumber) {
-    console.error(
-      "❌ Missing EMAIL, PASSWORD, or STORE_NUMBER environment variables"
-    );
-    console.error("process.env keys:", Object.keys(process.env)); // debug
-    process.exit(1);
-  }
+  // if (!email || !password || !storeNumber) {
+  //   console.error(
+  //     "❌ Missing EMAIL, PASSWORD, or STORE_NUMBER environment variables"
+  //   );
+  //   console.error("process.env keys:", Object.keys(process.env)); // debug
+  //   process.exit(1);
+  // }
 
   const browser = await chromium.launch({
     headless: true,
@@ -39,12 +39,12 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
   await page.getByRole("button", { name: "Log In" }).click();
   await page.getByRole("link", { name: "Roadmap" }).nth(1).click();
   await page.getByRole("heading", { name: "Checklist" }).click();
-  await page.click(".header__title.header__title__interactable");
-  await page
-    .getByRole("treeitem", { name: storeNumber.toString() })
-    .locator("svg")
-    .click();
-  await page.getByRole("button", { name: "Done" }).click();
+  // await page.click(".header__title.header__title__interactable");
+  // await page
+  //   .getByRole("treeitem", { name: storeNumber.toString() })
+  //   .locator("svg")
+  //   .click();
+  // await page.getByRole("button", { name: "Done" }).click();
 
   const checkCompletion = async (checklistName = "Completion Status") => {
     try {
@@ -95,8 +95,6 @@ const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
     "Closing Temperature Checks": doClosingTemps,
     "Closing Operations Checks": doClosingOps,
   };
-
-  console.log("Checklists for Store #", storeNumber);
 
   for (const name of checklistNames) {
     await page.getByRole("heading", { name }).click();
