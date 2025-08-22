@@ -16,7 +16,7 @@ async function doDoughLog(page, sleep, submitChecklist) {
 
   await page.getByText("Periodic").click();
 
-  for (let i = 2; i <= logAmountMap[today]; i++) {
+  for (let i = 1; i <= logAmountMap[today]; i++) {
     if (i === 1) {
       await page.getByRole("heading", { name: "Dough Log" }).click();
     } else {
