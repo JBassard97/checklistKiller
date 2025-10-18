@@ -10,6 +10,7 @@ const doLunchSani = require("./checklists/Lunch_Sani.js");
 const doPreRushOps = require("./checklists/Pre_Rush_Ops.js");
 const doDinnerSani = require("./checklists/Dinner_Sani.js");
 const doClosingTemps = require("./checklists/Closing_Temps.js");
+const doClosingSani = require("./checklists/Closing_Sani.js");
 const doClosingOps = require("./checklists/Closing_Ops.js");
 const doDailyCleaning = require("./checklists/Daily_Cleaning.js");
 const doDoughLog = require("./dough_logs/Dough_Log.js");
@@ -29,7 +30,7 @@ const password = process.env.PASSWORD;
 
   const browser = await chromium.launch({
     headless: true,
-    slowMo: 50,
+    slowMo: 100,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
@@ -80,6 +81,7 @@ const password = process.env.PASSWORD;
     "Pre-Rush Operations Checks",
     "Dinner Sanitization Checks",
     "Closing Temperature Checks",
+    "Closing Sanitization Checks",
     "Closing Operations Checks",
   ];
 
@@ -93,6 +95,7 @@ const password = process.env.PASSWORD;
     "Pre-Rush Operations Checks": doPreRushOps,
     "Dinner Sanitization Checks": doDinnerSani,
     "Closing Temperature Checks": doClosingTemps,
+    "Closing Sanitization Checks": doClosingSani,
     "Closing Operations Checks": doClosingOps,
   };
 
