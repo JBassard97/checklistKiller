@@ -15,8 +15,11 @@ const doClosingOps = require("./checklists/Closing_Ops.js");
 const doDailyCleaning = require("./checklists/Daily_Cleaning.js");
 const doDoughLog = require("./dough_logs/Dough_Log.js");
 
-const email = process.env.EMAIL;
-const password = process.env.PASSWORD;
+const day = new Date().getDay();
+const isEven = day % 2 === 0;
+
+const email = isEven ? process.env.EMAIL2 : process.env.EMAIL1;
+const password = isEven ? process.env.PASSWORD2 : process.env.PASSWORD1;
 // const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
 
 (async () => {
