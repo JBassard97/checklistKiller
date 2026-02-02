@@ -14,6 +14,12 @@ async function doDoughLog(page, sleep, submitChecklist) {
     Sunday: 3,
   };
 
+  const MIN = 200_000;
+  const MAX = 999_999;
+
+  const fakeDoughPack = () =>
+    `1-${Math.floor(Math.random() * (MAX - MIN + 1)) + MIN}`;
+
   await page.getByText("Periodic").click();
 
   for (let i = 1; i <= logAmountMap[today]; i++) {
@@ -35,7 +41,7 @@ async function doDoughLog(page, sleep, submitChecklist) {
     await page
       .locator('[id="275554"]')
       .getByRole("textbox", { name: "Input Text" })
-      .fill("1-390876");
+      .fill(fakeDoughPack());
     await page.locator('[id="275555"]').getByRole("spinbutton").fill("75");
     await sleep(1000);
     await page.locator('[id="275556"]').getByRole("spinbutton").fill("75");
