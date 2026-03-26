@@ -1,7 +1,8 @@
 async function doPepTest(page, submitChecklist) {
   await page.locator('[id="1"] span').first().click();
   await page.getByRole("textbox", { name: "Input Text" }).fill("5");
-  await page.getByRole("spinbutton").fill("485");
+  // await page.getByRole("spinbutton").fill("485");
+  await page.locator('[id="53344"]').getByRole("textbox").fill("485");
   await page
     .locator('[id="53345"]')
     .getByRole("button", { name: "Yes" })

@@ -42,9 +42,9 @@ async function doDoughLog(page, sleep, submitChecklist) {
       .locator('[id="275554"]')
       .getByRole("textbox", { name: "Input Text" })
       .fill(fakeDoughPack());
-    await page.locator('[id="275555"]').getByRole("spinbutton").fill("75");
+    await page.locator('[id="275555"]').getByRole("textbox").fill("75");
     await sleep(1000);
-    await page.locator('[id="275556"]').getByRole("spinbutton").fill("75");
+    await page.locator('[id="275556"]').getByRole("textbox").fill("75");
     await sleep(1000);
     await page.getByRole("button", { name: "Calculate" }).click();
     await sleep(1000);
@@ -60,7 +60,7 @@ async function doDoughLog(page, sleep, submitChecklist) {
     await page.locator('[id="1"] span').first().click();
     await page
       .getByText("Dough Temperature °")
-      .getByRole("spinbutton")
+      .getByRole("textbox")
       .fill("85");
     await page
       .locator('[id="275578"]')
