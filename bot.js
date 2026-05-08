@@ -33,7 +33,7 @@ const password = isEven ? process.env.PASSWORD2 : process.env.PASSWORD1;
 
   const browser = await chromium.launch({
     headless: true,
-    slowMo: 100,
+    slowMo: 300,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
